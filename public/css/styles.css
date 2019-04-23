@@ -63,7 +63,7 @@ header {
 
 
 header a {
-    color: #888888;
+    color: SlateBlue;
     margin-right: 16px;
 
     text-decoration: none;
@@ -81,6 +81,7 @@ form{
 input{
     border:3px solid SlateBlue;
     padding: 16px ;
+    background-color: lightskyblue;
 
 }
 
