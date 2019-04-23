@@ -75,13 +75,16 @@ form{
 }
 
 .portrait {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     width: 250px;
 }
 
 input{
     border:3px solid SlateBlue;
     padding: 16px ;
-    background-color: lightskyblue;
+    background-color: rgb(173, 223, 255);
 
 }
 
