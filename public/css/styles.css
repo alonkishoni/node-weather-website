@@ -1,0 +1,93 @@
+body{
+    color: #333333;
+    font-family: arial;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 0 16px;
+    
+    
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh
+}
+
+
+H1 { text-align: center;
+    font-family: tahoma;
+    color: SlateBlue;
+    border-bottom: 1px solid #cccccc;
+    font-size: 64px;
+    margin-bottom: 16px;
+
+}
+
+p {text-align: center;}
+
+#message-1 { text-align: center;
+    font-weight: 900;
+
+}
+
+#message-2 { text-align: center;
+    font-weight: 900;
+
+}
+
+.main-content {
+    flex-grow: 1;
+}
+
+footer {
+    color: #888888;
+    font-weight: normal;
+    border-top: 1px solid #cccccc;
+    margin-top: 16px;
+    padding: 16px 0;
+    
+    
+}
+
+header {
+    text-align: center;
+    margin-top: 16px;
+    margin-bottom: 48px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #cccccc;
+    
+    
+}
+
+
+
+header a {
+    color: #888888;
+    margin-right: 16px;
+
+    text-decoration: none;
+    
+}
+
+form{
+    text-align: center;
+}
+
+.portrait {
+    width: 250px;
+}
+
+input{
+    border:3px solid #cccccc;
+    padding: 16px ;
+
+}
+
+
+button {
+    cursor: pointer;
+    border: 3px solid SlateBlue;
+    background: SlateBlue;
+    color: white;
+    padding: 16px;
+}
+
