@@ -18,7 +18,7 @@ body{
 H1 { text-align: center;
     font-family: tahoma;
     color: SlateBlue;
-    border-bottom: 1px solid #cccccc;
+    border-bottom: 1px solid SlateBlue;
     font-size: 64px;
     margin-bottom: 16px;
 
@@ -43,7 +43,7 @@ p {text-align: center;}
 footer {
     color: #888888;
     font-weight: normal;
-    border-top: 1px solid #cccccc;
+    border-top: 1px solid SlateBlue;
     margin-top: 16px;
     padding: 16px 0;
     
@@ -55,7 +55,7 @@ header {
     margin-top: 16px;
     margin-bottom: 48px;
     padding-bottom: 16px;
-    border-bottom: 1px solid #cccccc;
+    border-bottom: 1px solid SlateBlue;
     
     
 }
@@ -79,7 +79,7 @@ form{
 }
 
 input{
-    border:3px solid #cccccc;
+    border:3px solid SlateBlue;
     padding: 16px ;
 
 }
