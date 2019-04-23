@@ -26,7 +26,7 @@ app.use(express.static(publicDirectoryPath))
 app.get('', (req,res) =>{
     res.render('index',{
         title: 'Weather',
-        name: 'Alon K'
+        name: 'Alon Kishoni'
 
     })
 })
@@ -34,7 +34,7 @@ app.get('', (req,res) =>{
 app.get('/about', (req,res) =>{
     res.render('about',{
         title: 'About Me',
-        name: 'Alon K'
+        name: 'Alon Kishoni'
     })
 })
 
@@ -73,7 +73,7 @@ app.get('/help', (req,res)=>{
     res.render('help',{
         text: 'Search For a Location To Get a Concise Current Weather Report',
         title: 'Help',
-        name: 'Alon K'
+        name: 'Alon Kishoni'
     })
 })
 
@@ -81,7 +81,7 @@ app.get('/help/*', (req, res) => {
     res.render('404',{
     title: 'Help',
     error: 'Help Article Not Found',
-    name: 'Alon K'
+    name: 'Alon Kishoni'
     })
 })
 
@@ -89,7 +89,7 @@ app.get('*', (req, res) => {
     res.render('404',{
     title: 'Error 404',
     error: 'Page Not Found',
-    name: 'Alon K'
+    name: 'Alon Kishoni'
     })
 })
 
