@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+    
+<head>
+    <title>Exchange Rates</title>
+    <link rel="icon" href="/img/weather-icon.png">
+    <link rel="stylesheet" href="/css/styles.css">
+    
+</head>
+
+<body>
+    {{>header}}
+    <div class="main-content">
+        
+
+        <p>Get Your Current Exchange Rates Here:</p>
+
+            <form>
+       <fieldset>
+          <legend>Selecting elements</legend>
+          <p>
+             <label>Select list</label>
+             <select id = "base">
+               <option value = "USD">USD</option>
+               <option value = "GBP">GBP</option>
+               <option value = "NIS">NIS</option>
+               <option value = "EUR">EUR</option>
+             </select>
+          </p>
+
+           <p>
+             <label>Select list</label>
+             <select id = "compare">
+               <option value = "USD">USD</option>
+               <option value = "GBP">GBP</option>
+               <option value = "NIS">NIS</option>
+               <option value = "EUR">EUR</option>
+             </select>
+          </p>
+          <p id =result></p>
+
+         </fieldset>
+         <button input type="submit">Search</button>
+    </form>
+  </div>
+</div>
+
+     
+
+
+    </div>
+  
+  {{>footer}} 
+
+  <script src="/js/app2.js"></script>
+</body>
+
+</html>
