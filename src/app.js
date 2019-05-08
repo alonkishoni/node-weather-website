@@ -42,7 +42,7 @@ app.get('/about', (req,res) =>{
 
 app.get('/weatherData', (req, res)=>{
     if(!req.query.address){
-        return res.send({error: "error"})
+        return res.send({error: "Search for a location to get a weather report..."})
     }
     geocode(req.query.address, (error, {latitude, longitude, location} = {})=>{
         if(error){
@@ -75,10 +75,10 @@ app.get('/weather', (req, res)=>{
           })
     })
 
-app.get('/rates', (req, res)=>{
-        res.render('rates',{
-            text: 'Get Your Weather',
-            title: 'Weather',
+app.get('/currency', (req, res)=>{
+        res.render('currency',{
+            text: 'A Simple Currency Converter',
+            title: 'Currency Converter',
             name: 'Alon Kishoni'
           }) 
         })
@@ -86,11 +86,16 @@ app.get('/rates', (req, res)=>{
 
 app.get('/ratesData', (req,res)=>{
  
-    exchange(req.query.base, req.query.compare, (error , result)=>{
-        if (error){
-            return res.send({error: 'error'})
-        } 
-        res.send(result)
+    exchange(req.query.base, req.query.compare, (error, result)=>{
+        if(error){
+            console.log(error)
+            res.send(error)
+        }else{
+            console.log(result)
+            res.send(result)
+        }
+ 
+        
     })
    
 

@@ -14,12 +14,15 @@ rateForm.addEventListener('submit', (e) => {
     
    fetch('/ratesData?base=' + base + '&compare=' + compare).then((response)=>{
     response.json().then((data)=>{
+        if(!data){
+          result.textContent = 'Could Not Reach Database'
+        }
  
-        if (data.error) {
+        else if (data.error) {
             result.textContent = data.error
-              
+           
         } else {
-            console.log(data)
+            
             result.textContent = data.result
 
         }
