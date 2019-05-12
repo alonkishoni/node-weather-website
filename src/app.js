@@ -88,14 +88,22 @@ app.get('/ratesData', (req,res)=>{
  
     exchange(req.query.base, req.query.compare, (error, result)=>{
         if(error){
+
             console.log(error)
             res.send(error)
+
+        }else if(req.query.base === req.query.compare){
+
+
+        res.send(result)
+
         }else{
-            console.log(result)
+
             res.send(result)
+
+
         }
- 
-        
+
     })
    
 
