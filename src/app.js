@@ -5,6 +5,7 @@ const hbs = require('hbs')
 const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
 const exchange = require('./convert/exchange-calc')
+const insta = require('./utils/instaWeather')
 
 const app = express()
 const port = process.env.PORT || 3000
@@ -13,7 +14,6 @@ const port = process.env.PORT || 3000
 const publicDirectoryPath = path.join(__dirname, '../public')
 const viewsPath = path.join(__dirname, '../templates/views')
 const partialsPath = path.join(__dirname, '../templates/partials')
-
 
 // Setup Handlebars engine and views path
 app.set('view engine','hbs')
@@ -25,13 +25,7 @@ app.use(express.static(publicDirectoryPath))
 
 
 
-app.get('', (req,res) =>{
-    res.render('index',{
-        title: 'My Site',
-        name: 'Alon Kishoni'
 
-    })
-})
 
 app.get('/about', (req,res) =>{
     res.render('about',{
@@ -40,37 +34,81 @@ app.get('/about', (req,res) =>{
     })
 })
 
-app.get('/weatherData', (req, res)=>{
+app.get('/weatherbylocation', (req,res)=>{
+    if(!req.query.location){
+        return res.send({error: "Search for a location to get a weather report..."})
+    }
+    
+    forecast(req.query.location[1], req.query.location[0], (error, forecastData)=>{
+        if (error) {
+            return res.send({
+                error : 'Unable to get forecast'
+            })
+        }
+        
+        res.send({
+            location: 'Your Current Location',
+            forecast: forecastData,
+            address: req.query.location
+        })
+    }) 
+})
+
+app.get('/weatherData', async (req, res)=>{
     if(!req.query.address){
         return res.send({error: "Search for a location to get a weather report..."})
     }
-    geocode(req.query.address, (error, {latitude, longitude, location} = {})=>{
+
+
+    const photos = await insta.get(req.query.address).then((response)=>{
+       return response
+    })
+
+    var location_q
+    
+
+    if(photos === [] || photos[0] === undefined){
+        location_q = req.query.address
+    } else{
+        location_q = await photos[0].location_name
+    }
+
+
+
+    
+
+   await geocode(location_q, (error, {latitude, longitude, location} = {})=>{
         if(error){
             return res.send({
                 error : 'Unable To Get Weather, Try a Different Search.'
             })
         }
         forecast(latitude, longitude, (error, forecastData)=>{
+            console.log(latitude, longitude)
             if (error) {
                 return res.send({
                     error : 'Unable to get forecast'
                 })
             }
+           
+            
             res.send({
+                photos: photos,
                 location: location,
                 forecast: forecastData,
                 address: req.query.address
             })
         })
+    })  
+})
 
-    })
     
-    })
 
-app.get('/weather', (req, res)=>{
+
+app.get('', (req, res)=>{
         res.render('weather',{
             text: 'Get Your Weather',
-            title: 'Weather',
+            title: 'What To Weather',
             name: 'Alon Kishoni'
           })
     })
@@ -111,16 +149,9 @@ app.get('/ratesData', (req,res)=>{
 
 
 
-
-
-app.get('/weather',(req, res) => {
- 
-})
-
-
 app.get('/help', (req,res)=>{
     res.render('help',{
-        text: 'Search For a Location To Get a Concise Current Weather Report',
+        text: 'Search For a Location To Get Current Weather',
         title: 'Help',
         name: 'Alon Kishoni'
     })

@@ -5,7 +5,7 @@ const geocode = (address, callback) =>{
 
  const url = 'https://api.mapbox.com/geocoding/v5/mapbox.places/' + encodeURIComponent(address) + '.json?proximity=-74.70850,40.78375&access_token=pk.eyJ1IjoiYWxvbmtpc2hvbmkiLCJhIjoiY2p1YXdmdGRpMDZwYjQ0bnhqazY1aXI3eSJ9.Xrf6-D9XoAP0B8AytVEFiA&limit=1'
 
-    request({ url , json : true}, (error, { body }) => {
+    request({ url , json : true}, (error, { body }={}) => {
         if (error) {
             callback ('Unable To Connect To Location Services', undefined)
         } else if (body.message || body.features.length === 0 ) {
@@ -15,7 +15,6 @@ const geocode = (address, callback) =>{
                 latitude : body.features[0].center[0],
                 longitude : body.features[0].center[1],
                 location : body.features[0].place_name
-    
             })
         }
     })   

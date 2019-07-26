@@ -1,77 +1,150 @@
 
 body{
     color: #333333;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: OCR A Std, monospace;
     max-width: 650px;
     margin: 0 auto;
     padding: 0 16px;
-    background-color: skyblue;
-    
-    
-
+    /* background-image: url("/img/tumblr_nkxjnkB4On1qhf6kbo1_1280.gif"); */
+    background-color: #141115;
+    background-position: center center;
     display: flex;
     flex-direction: column;
-    min-height: 100vh
+    background-size: 100% 100%;
+    min-height: 100vh;
 }
 
 
-H1 { text-align: center;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: SlateBlue;
-    border-bottom: 1px solid SlateBlue;
-    font-size: 40px;
+.main-content{
+  animation: box 1s;
+  animation-timing-function: ease;
+  background-color: #4C2B36;
+  color: rgb(255, 255, 255);
+  position: relative;
+  text-align: relative;
+  width: 500px;
+  box-shadow: 0px 0px 50px 7px #000000;
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 25px auto;
+  border-radius: 9px;
+  /* display: flex;
+  flex-direction: row; 
+  flex-wrap: wrap;
+  flex-flow: row wrap; */
+  transition: transform 0.5s, font-size 0.5s;
+}
+
+
+
+
+.main-content:hover{
+    transform: scale(1.05);
+}
+
+
+H1 { 
+    text-align: center;
+    text-shadow: 0px 0px 20px #000000;
+    font-family: Billabong;
+    color: rgb(200, 211, 141);
+    font-size: 48px;
     margin-bottom: 16px;
-
+    animation: h1 2s forwards alternate infinite;
+    transition: 1s;
 }
 
-p {text-align: center;}
 
-#message-1 { text-align: center;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+h1:hover{
+    transform: scale(1.2);
+    
+}
+
+p {
+    text-align: center;
+    transition: font-size 2s;
+}
+
+
+#message-1 { 
+    text-align: relative;
+    text-shadow: 0px 0px 15px #000000;
+    font-family: OCR A Std, monospace;
     font-weight: 900;
-
+    transition: 1s;
 }
 
-#message-2 { text-align: center;
+#message-2 { 
+    text-align: relative;
+    text-shadow: 0px 0px 15px #000000;
     font-weight: 900;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-
+    font-family: OCR A Std, monospace;
+    transition: 1s;
 }
+
+
+/* .container{
+    position: center;
+} */
+
+#photos{
+    border-radius: 15px;
+    margin-top: 50px;
+    /* padding: 5px; */
+    max-width: 400px;
+    height: auto;
+    transition: 0.5s;
+}
+
+#photos:hover{
+    transform: scale(1.08);
+}
+
+#aboutimg{
+    border-radius: 15px;
+}
+
 
 .main-content {
     flex-grow: 1;
 }
 
 footer {
-    color: #888888;
+    color: #ffffff;
     font-weight: normal;
-    border-top: 1px solid SlateBlue;
     margin-top: 16px;
     padding: 16px 0;
-    
-    
 }
 
-header {
+footer {
+    animation: header 2s;
+    animation-timing-function: ease;
+    position: relative;
     text-align: center;
     margin-top: 16px;
     margin-bottom: 48px;
     padding-bottom: 16px;
-    border-bottom: 1px solid SlateBlue;
-    
-    
 }
 
 
 
-header a {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: SlateBlue;
-    margin-right: 16px;
-
+footer a {
+    font-size: 15px;
+    font-family: OCR A Std, monospace;
+    color: rgb(255, 255, 255);
+    margin: 0px;
+    padding: 16px;
     text-decoration: none;
-    
+    transition: all 1s;
 }
+
+header a:hover{
+    transform: scale(1.6);
+    color: rgb(200, 211, 141);
+    /* margin: 30px; */
+}
+
 
 form{
     text-align: center;
@@ -85,35 +158,102 @@ form{
 }
 
 input{
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    border:3px solid SlateBlue;
-    padding: 16px ;
-    background-color: rgb(173, 223, 255);
+    font-family: OCR A Std, monospace;
+    border:2px solid  rgb(200, 211, 141);
+    width: 100px;
+    padding: 10px ;
+    background-color: #4C2B36;
+    border-radius: 33px;
+    margin-right: 7px;
+    transition: width 0.5s, font-size 0.5s, background-color 0.5s;
 
 }
 
+input:hover{
+    width: 200px;
+    background-color: rgb(27, 27, 27);
+}
+
+
+input:focus{
+    width: 200px;
+    background-color: rgb(27, 27, 27);
+}
+
+.select{
+    font-family: OCR A Std, monospace;
+    cursor: pointer;
+    border: 0px solid rgb(255, 255, 255);
+    background: #341e64;
+    color: white;
+    padding: 10px;
+    size: 20px;
+    box-shadow: 0px 0px 5px 1px #000000;
+    margin-right: 7px;
+}
+
+#result{
+    font-size: 40px;
+}
 
 button {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: OCR A Std, monospace;
     cursor: pointer;
-    border: 3px solid SlateBlue;
-    background: SlateBlue;
+    border: 2px solid rgb(200, 211, 141);
+    background: #341e64;
     color: white;
-    padding: 16px;
+    padding: 10px;
+    size: 20px;
+    margin-right: 7px;
 }
 
-option{
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+button:hover {
+    background: #341e64;
+    animation-name: button;
+    animation-duration: 0.4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#button1 {border-radius: 33px;}
+#my-location {border-radius: 33px;}
+
+.fa-cog {
+    color: black;
+}
+
+option {
+    font-family: OCR A Std, monospace;
     border:3px solid SlateBlue;
-    padding: 16px ;
+    padding: 16px;
     background-color: rgb(173, 223, 255);
 
 }
 
 select{
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: OCR A Std, monospace;
     border:3px solid SlateBlue;
-    padding: 16px ;
+    padding: 16px;
     background-color: rgb(173, 223, 255);
 
 }
+
+  @keyframes button {
+    from {background-color:  #341e64;}
+    to {background-color: rgb(2, 2, 44);}
+  }
+
+  @keyframes input {
+    from {background-color: #56359b;}
+    to {background-color: #9f84db;}
+  }
+
+  @keyframes box {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+  @keyframes header {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
