@@ -67,15 +67,16 @@ app.get('/weatherData', async (req, res)=>{
     var location_q
     
 
-    if(photos === [] || photos[0] === undefined){
+    if(photos === [] || !photos){
         location_q = req.query.address
-    } else{
-        location_q = await photos[0].location_name
+    }else{
+        try{
+            location_q = await photos[0].city_name
+        }catch{
+            location_q = await photos[0].location_name
+        }
+        
     }
-
-
-
-    
 
    await geocode(location_q, (error, {latitude, longitude, location} = {})=>{
         if(error){

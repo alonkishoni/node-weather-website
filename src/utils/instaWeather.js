@@ -81,6 +81,10 @@ async function getPhotos (location){
   const searchLocation = instamancer.location(location, locationOptions)
   var times = []
   var results = []
+
+  if (location === undefined){
+    return result = 'No Results, Try A New Search'
+  }
   
   for await (const post of searchLocation){
     if (!post.shortcode_media.accessibility_caption || !post.shortcode_media.location){
@@ -162,6 +166,9 @@ async function get(search){
   const q = await getLocationID(search)
   const res = await getPhotos(q)
 
+if (q === undefined){
+ return console.log('error')
+}else{
   var result = res.sort(function(a, b) {
     a = a.unixDate
     b = b.unixDate
@@ -169,6 +176,7 @@ async function get(search){
 })
 
   return result
+}
 }
 
 

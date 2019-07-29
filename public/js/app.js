@@ -2,6 +2,7 @@ const weatherForm = document.querySelector('#weather')
 const search = document.querySelector('input')
 const messageOne = document.querySelector('#message-1')
 const messageTwo = document.querySelector('#message-2')
+const messageThree = document.querySelector('#message-3')
 const currentLocation = document.querySelector('#my-location')
 
 
@@ -55,13 +56,13 @@ if(document.getElementsByClassName("container")[0] !== undefined){
 
 
     messageOne.textContent = ' '
-    messageTwo.textContent = ' Fetching Weather For ' + location
+    messageTwo.textContent = ' Scraping Instagram For ' + location + ', Hold On...'
+    messageThree.textContent = ''
     
     
    fetch('/weatherData?address=' + location).then((response)=>{
     response.json().then((data)=>{
-        
-        if(data.photos.error){
+        if(!data.photos){
             messageOne.textContent = data.location
             messageTwo.textContent = data.forecast
         }
@@ -70,11 +71,12 @@ if(document.getElementsByClassName("container")[0] !== undefined){
         if (data.error) {
             messageOne.textContent = data.error
             messageTwo.textContent = ''
+           
               
         } else {
            
 
-            if(data.photos[0]){ // !== undefined
+            if(data.photos){
                 
                 data.photos.forEach((item)=>{
 
@@ -98,8 +100,10 @@ if(document.getElementsByClassName("container")[0] !== undefined){
 
                 })
 
+
                      messageOne.textContent = data.location
                      messageTwo.textContent = data.forecast
+                     messageThree.textContent = 'Latest Photos From ' + data.photos[0].city_name
 
 
         }else{
