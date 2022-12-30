@@ -13,7 +13,7 @@
   "dependencies": {
     "express": "^4.16.4",
     "hbs": "^4.0.4",
-    "instamancer": "^1.4.2",
+    "instamancer": "^3.3.1",
     "minimatch": "^3.0.4",
     "moment": "^2.24.0",
     "request": "^2.88.0"
